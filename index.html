@@ -41,16 +41,16 @@
                 <p class="ms-1">Enter the aspect ratio and either the image length or width to calculate the missing dimension.</p>
                 <div class="input-group m-1">
                     <span class="input-group-text w-25">Length</span>
-                    <input type="number" min="1" step=0.01 placeholder="length" aria-label="length" class="form-control" id="lenghtFromWidth">
+                    <input type="number" min="1" step=0.01 placeholder="length" aria-label="length" class="form-control" id="lengthFromWidth">
                 </div>
-                <button class="btn btn-primary w-100 ms-1" type="button" onclick="lengthFromWidth()">Calculate Length</button>
+                <button class="btn btn-primary w-100 ms-1" type="button" onclick="calcLengthFromWidth()">Calculate Length</button>
                 <div class="input-group m-1">
                     <span class="input-group-text w-25">Ratio</span>
-                    <input type="number" min="1" placeholder="larger" aria-label="ratio" class="form-control" id="lenghtWidthRatioLeft">
+                    <input type="number" min="1" placeholder="larger" aria-label="ratio" class="form-control" id="lengthWidthRatioLeft">
                     <span class="input-group-text">:</span>
-                    <input type="number" min="1" placeholder="smaller" aria-label="ratio" class="form-control" id="lenghtWidthRatioRight">
+                    <input type="number" min="1" placeholder="smaller" aria-label="ratio" class="form-control" id="lengthWidthRatioRight">
                 </div>
-                <button class="btn btn-primary w-100 ms-1" type="button" onclick="widthFromlength()">Calculate Width</button>
+                <button class="btn btn-primary w-100 ms-1" type="button" onclick="calcWidthFromlength()">Calculate Width</button>
                 <div class="input-group m-1">
                     <span class="input-group-text w-25">Width</span>
                     <input type="number" min="1" step=0.01 placeholder="width" aria-label="width" class="form-control" id="widthFromLength">
@@ -98,7 +98,7 @@
             document.getElementById("ratio").value = `${left}:${right}`;
         }
 
-        function lengthFromWidth() {
+        function calcLengthFromWidth() {
             const width = Number.parseFloat(document.getElementById("widthFromLength").value).toFixed(2);
             const rat1 = Number.parseInt(document.getElementById("lengthWidthRatioLeft").value);
             const rat2 = Number.parseInt(document.getElementById("lengthWidthRatioRight").value);
@@ -113,7 +113,7 @@
             document.getElementById("lengthFromWidth").value = ((width / ratioRight) * ratioLeft).toFixed(2);
         }
 
-        function widthFromlength() {
+        function calcWidthFromlength() {
             const length = Number.parseFloat(document.getElementById("lengthFromWidth").value).toFixed(2);
             const rat1 = Number.parseInt(document.getElementById("lengthWidthRatioLeft").value);
             const rat2 = Number.parseInt(document.getElementById("lengthWidthRatioRight").value);
